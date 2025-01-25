@@ -363,9 +363,9 @@ run_retroarch() {
 	case "$PLATFORM" in
 		"Brick" | "SmartPro" )
 			if setting_get "expertRA" || [ "$CORE" = "km_parallel_n64_xtreme_amped_turbo" ]; then
-				export RA_BIN="ra64.trimui_$PLATFORM"
-			else
 				export RA_BIN="retroarch.trimui"
+			else
+				export RA_BIN="ra64.trimui_$PLATFORM"
 			fi
 			if [ "$CORE" = "uae4arm" ]; then
 				export LD_LIBRARY_PATH=$EMU_DIR:$LD_LIBRARY_PATH
