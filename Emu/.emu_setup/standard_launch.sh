@@ -363,7 +363,7 @@ run_retroarch() {
 	case "$PLATFORM" in
 		"Brick" | "SmartPro" )
 			if setting_get "expertRA" || [ "$CORE" = "km_parallel_n64_xtreme_amped_turbo" ]; then
-				export RA_BIN="ra64.trimui"
+				export RA_BIN="ra64.trimui_$PLATFORM"
 			else
 				export RA_BIN="retroarch.trimui"
 			fi
