@@ -1,0 +1,7 @@
+#!/bin/sh
+
+HERE="$(dirname "$0")"
+
+cd "$HERE"
+cp ./wrong_card_you_idiot.sh /tmp/
+/tmp/wrong_card_you_idiot.sh
