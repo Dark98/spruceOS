@@ -2,7 +2,18 @@
 
 SCRIPT_PATH="/mnt/SDCARD/spruce/scripts"
 
-MOUNT_MODE=$(mount | grep SDCARD | cut -d'(' -f 2 | cut -d',' -f 1)
+# simplified PLATFORM detection
+INFO=$(cat /proc/cpuinfo 2> /dev/null)
+case $INFO in
+	*"0xd05"*)
+		export SD_or_sd="/mnt/sdcard"
+		;;
+	*)
+		export SD_or_sd="/mnt/SDCARD"
+		;;
+esac
+
+MOUNT_MODE=$(mount | grep "$SD_or_sd" | cut -d'(' -f 2 | cut -d',' -f 1)
 
 if [ "$MOUNT_MODE" = "ro" ]; then #set to rw for testing
 	echo
